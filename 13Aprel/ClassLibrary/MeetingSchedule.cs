@@ -9,21 +9,11 @@ namespace ClassLibrary
         public List<Meeting> Mettings = new List<Meeting>();
         public void SetMeeting(string FullName, DateTime From, DateTime To)
         {
-            int count = 0;
+            
             if (From<To)
             {
-                foreach (var item in Mettings)
+                if (Mettings.FindAll(x=> (x.FromDate < From && x.ToDate < To && x.ToDate < From) || (x.FromDate > From && x.ToDate > To && x.ToDate > From)).Count == Mettings.Count) 
                 {
-                    if ((item.FromDate < From && item.ToDate < To && item.ToDate < From) || (item.FromDate > From && item.ToDate > To && item.ToDate > From) && From < To)
-                    {
-                        count++;
-
-                    }
-
-                }
-                if (count == Mettings.Count)
-                {
-
                     Meeting newMetting = new Meeting();
                     newMetting.Name = FullName;
                     newMetting.FromDate = From;
