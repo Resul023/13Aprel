@@ -12,7 +12,7 @@ namespace ClassLibrary
             
             if (From<To)
             {
-                if (Mettings.FindAll(x=> (x.FromDate < From && x.ToDate < To && x.ToDate < From) || (x.FromDate > From && x.ToDate > To && x.ToDate > From)).Count == Mettings.Count) 
+                if (Mettings.FindAll(x=> (x.FromDate < From && x.ToDate < To && x.ToDate < From) || (x.FromDate > From && x.ToDate > To && x.FromDate > To)).Count == Mettings.Count) 
                 {
                     Meeting newMetting = new Meeting();
                     newMetting.Name = FullName;
